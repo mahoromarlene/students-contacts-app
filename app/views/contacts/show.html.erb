@@ -1,0 +1,21 @@
+<h1>Contact</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Phone number</th>
+  </tr>
+  <tr>
+    <td><%= @contact.first_name %></td>
+    <td><%= @contact.last_name %></td>
+    <td><%= @contact.email %></td>
+    <td><%= @contact.phone_number %></td>
+  </tr>
+</table>
+
+<% form_tag "contacts/#{@contact.id}", method: :delete do %>
+  <input type="submit" value="Destroy contact"
+<% end %>
+
