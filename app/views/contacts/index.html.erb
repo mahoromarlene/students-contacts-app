@@ -1,18 +1,9 @@
-<h1>All contacts</h1>
+<h1>All Contacts</h1>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Phone number</th>
-  </tr>
-    <% @contacts.each do |contact| %>
-  <tr>
-    <td><%= contact.first_name %></td>
-    <td><%= contact.last_name %></td>
-    <td><%= contact.email %></td>
-    <td><%= contact.phone_number %></td>
-  </tr>
-    <% end %>
-</table>
+<% @contacts.each do |contact| %>
+  <div>
+    <h2><%= link_to "#{contact.first_name} #{contact.middle_name} #{contact.last_name}", "/contacts/#{contact.id}" %></h2>
+    <h3>Email: <%= contact.email %></h3>
+    <h3>Phone number: <%= contact.phone_number %></h3>
+  </div>
+<% end %>

@@ -1,21 +1,12 @@
 <h1>Contact</h1>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Phone number</th>
-  </tr>
-  <tr>
-    <td><%= @contact.first_name %></td>
-    <td><%= @contact.last_name %></td>
-    <td><%= @contact.email %></td>
-    <td><%= @contact.phone_number %></td>
-  </tr>
-</table>
+<h1><%= @contact.first_name %> <%= @contact.middle_name %> <%= @contact.last_name %></h1>
+<h2>Email: <%= @contact.email %></h2>
+<h2>Phone number: <%= @contact.phone_number %></h2>
 
-<% form_tag "contacts/#{@contact.id}", method: :delete do %>
-  <input type="submit" value="Destroy contact"
-<% end %>
+<button type="button" class="btn btn-primary"><%= link_to "Edit", "/contacts/#{@contact.id}/edit" %></button>
+
+<button type="button" class="btn btn-primary"><%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete %></button>
+
+
 
