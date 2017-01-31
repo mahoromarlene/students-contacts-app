@@ -4,9 +4,9 @@
 <h2>Email: <%= @contact.email %></h2>
 <h2>Phone number: <%= @contact.phone_number %></h2>
 
-<button type="button" class="btn btn-primary"><%= link_to "Edit", "/contacts/#{@contact.id}/edit" %></button>
+<%= button_to "Edit", "/contacts/#{@contact.id}/edit", method: :get %>
 
-<button type="button" class="btn btn-primary"><%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete %></button>
-
-
+<%= form_tag "/contacts/#{@contact.id}", method: :delete do %>
+  <input type="submit" value="Destroy Product">
+<% end %>
 

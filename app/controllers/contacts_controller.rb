@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
     phone_number = params[:phone_number]
     contact = Contact.new({first_name: first_name, last_name: last_name, email: email, phone_number: phone_number})
     contact.save
-    redirect_to "/contacts/#{@contact.id}"
+    redirect_to "/contacts/new"
   end
 
   def edit
@@ -41,4 +41,13 @@ class ContactsController < ApplicationController
     @contact.destroy
     redirect_to "/contacts/"
   end
+
+  def search
+    search_query = params[:search_input]
+    @contacts = Contact.where("first_name LIKE ? OR email LIKE ?", "%#{search_query}%", "%#{search_query}%")
+    if @contacts.empty?
+      flash[:info] = "No contact found in search"
+    end
+    render :index
+end
 end

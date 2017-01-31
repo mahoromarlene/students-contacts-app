@@ -7,3 +7,7 @@
     <h3>Phone number: <%= contact.phone_number %></h3>
   </div>
 <% end %>
+
+<p> You have <%= @contacts.count %> contacts</p>
+
+<%= button_to "New", "/contacts", method: :post %>
